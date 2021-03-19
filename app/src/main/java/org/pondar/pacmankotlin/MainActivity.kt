@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
         game?.newGame()
 
         resetButton.setOnClickListener {
-            game?.newGame()
+            game?.restartGame()
         }
         pauseButton.setOnClickListener {
             game?.pauseGame()

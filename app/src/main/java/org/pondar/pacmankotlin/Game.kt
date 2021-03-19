@@ -12,7 +12,7 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import java.lang.reflect.Array.set
 import java.util.*
-import kotlin.random.Random
+
 
 
 /**
@@ -105,6 +105,11 @@ class Game(private var context: Context, view: TextView, time: TextView) {
             }
         }
         enemiesInitialized = true
+    }
+
+    fun restartGame(){
+        level = 1
+        newGame()
     }
 
     fun newGame() {
@@ -201,7 +206,6 @@ class Game(private var context: Context, view: TextView, time: TextView) {
         }
     }
 
-
     fun pauseGame() {
         running = false
     }
@@ -209,7 +213,6 @@ class Game(private var context: Context, view: TextView, time: TextView) {
     fun gameOver() {
         running = false
         Toast.makeText(context, "GAME OVER", Toast.LENGTH_LONG).show()
-
     }
 
     fun continueGame() {
@@ -266,7 +269,7 @@ class Game(private var context: Context, view: TextView, time: TextView) {
     }
     
     fun levelUp(){
-        if (level <= 3) {
+        if (level < 3) {
             level++
             newGame()
             running= true
